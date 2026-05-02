@@ -3,7 +3,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 // 1) Replace these with your real project credentials.
 const SUPABASE_URL = 'https://saymqnihmcrowapmrajj.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheW1xbmlobWNyb3dhcG1yYWpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MTI0MTcsImV4cCI6MjA5MzI4ODQxN30.2Fe_iQTczYVT5uRbk1RS4uJVgWi6aIeRXhXNDcPJJTg';
-const DISCORD_INVITE_URL = 'https://discord.gg/YOUR_INVITE_CODE';
+const DISCORD_INVITE_URL = 'https://discord.gg/pN8Snr8VT';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
