@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogicNest Admin | Tickets</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="admin-wrap reveal visible">
+      <section class="showcase">
+        <h1>Admin Ticket Dashboard</h1>
+        <p>Private LogicNest ticket inbox.</p>
+      </section>
+
+      <section id="loginBox" class="hire" style="grid-template-columns: 1fr;">
+        <form id="adminLoginForm">
+          <label>
+            Admin Password
+            <input type="password" id="adminPassword" required />
+          </label>
+          <button class="btn btn-primary" type="submit">Unlock Dashboard</button>
+          <p id="loginStatus" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="dashboard" class="showcase" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <h2 style="margin:0;">Submitted Tickets</h2>
+          <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
+        </div>
+        <p id="ticketsMeta"></p>
+        <div id="ticketsList"></div>
+        <div class="pagination-row">
+          <button id="prevPage" class="btn btn-ghost" type="button">Previous</button>
+          <span id="pageInfo"></span>
+          <button id="nextPage" class="btn btn-ghost" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../config.js"></script>
+    <script type="module" src="./admin.js"></script>
+  </body>
+</html>

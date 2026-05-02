@@ -1,0 +1,5 @@
+window.LOGICNEST_CONFIG = {
+  SUPABASE_URL: 'https://saymqnihmcrowapmrajj.supabase.co',
+  SUPABASE_ANON_KEY: 'REPLACE_WITH_ANON_KEY',
+  ADMIN_PASSWORD: 'REPLACE_WITH_ADMIN_PASSWORD'
+};
