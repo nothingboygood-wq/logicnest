@@ -50,3 +50,9 @@ footer { border-top:1px solid var(--border); padding:1rem 0 2rem; color:var(--mu
   .cards { grid-template-columns: 1fr; }
   nav { display:none; }
 }
+
+.admin-wrap { padding: 2rem 0 3rem; width: min(980px, 92vw); margin: 0 auto; }
+.pagination-row { display:flex; justify-content:center; align-items:center; gap:.8rem; margin-top:1rem; }
+.ticket-card { background: rgba(255,255,255,.04); border:1px solid var(--border); border-radius:.8rem; padding:1rem; margin-bottom:.8rem; }
+.ticket-card h3 { margin-top:0; }
+button:disabled { opacity:.5; cursor:not-allowed; }

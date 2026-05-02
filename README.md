@@ -1,10 +1,16 @@
 # LogicNest Website
 
-Modern single-page website for **LogicNest** with:
+Modern website for **LogicNest** with:
 - premium dark UI
 - smooth reveal animations
 - Discord invite CTA
 - Supabase ticket creation form for new client requests
+- password-protected admin page with ticket pagination
+
+## Pages
+
+- `index.html` → public site and hire form
+- `admin.html` → ticket dashboard (password screen first)
 
 ## Quick start
 
@@ -12,14 +18,20 @@ Modern single-page website for **LogicNest** with:
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
    - `DISCORD_INVITE_URL`
-2. Create a `tickets` table in Supabase using SQL below.
-3. Run locally:
+2. Open `admin.js` and set:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `ADMIN_PASSWORD`
+3. Create a `tickets` table in Supabase using SQL below.
+4. Run locally:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then open `http://localhost:4173`.
+Then open:
+- `http://localhost:4173`
+- `http://localhost:4173/admin.html`
 
 ## Supabase SQL (tickets table)
 
@@ -43,7 +55,6 @@ to anon
 with check (true);
 ```
 
-## Notes
+## Security note
 
-- You can add bot/webhook automation that posts new tickets to your Discord server.
-- For production, consider adding rate limiting and spam protection (Cloudflare Turnstile/reCAPTCHA).
+This implementation uses a frontend password gate for admin access. For strong protection, move admin auth to Supabase Auth and enforce read policies so only authenticated admin users can query tickets.
