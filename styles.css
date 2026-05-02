@@ -14,3 +14,9 @@ label{display:grid;gap:.35rem}input,select,textarea{background:#0f0f0f;color:var
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}.metric{padding:1rem;border:1px solid var(--line);border-radius:12px;background:#0e0e0e}.metric b{font-size:1.4rem;display:block}
 .reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.show{opacity:1;transform:none}
 @media(max-width:950px){.hero-grid,.three-up,.split,.metrics{grid-template-columns:1fr}}
+
+.panel{position:relative;overflow:hidden}
+.panel::after{content:"";position:absolute;inset:-120% -30%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.06),transparent);transform:translateX(-50%);animation:sheen 8s linear infinite;pointer-events:none}
+@keyframes sheen{to{transform:translateX(50%)}}
+.hero-grid{animation:fadein .9s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}

@@ -34,4 +34,9 @@ create table if not exists public.tickets (
   source text default 'website',
   created_at timestamptz default now()
 );
+
+alter table public.tickets enable row level security;
+
+create policy "Allow ticket inserts" on public.tickets for insert to anon with check (true);
+create policy "Allow ticket reads" on public.tickets for select to anon using (true);
 ```
