@@ -1,0 +1,52 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+// 1) Replace these with your real project credentials.
+const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const DISCORD_INVITE_URL = 'https://discord.gg/YOUR_INVITE_CODE';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('discordInvite').href = DISCORD_INVITE_URL;
+
+const form = document.getElementById('ticketForm');
+const statusEl = document.getElementById('formStatus');
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  statusEl.textContent = 'Submitting your ticket...';
+
+  const formData = new FormData(form);
+  const payload = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    budget: formData.get('budget'),
+    message: formData.get('message'),
+    source: 'website',
+    created_at: new Date().toISOString(),
+  };
+
+  const { error } = await supabase.from('tickets').insert(payload);
+
+  if (error) {
+    statusEl.textContent = `Could not submit ticket: ${error.message}`;
+    return;
+  }
+
+  form.reset();
+  statusEl.textContent = '✅ Ticket created! We will contact you soon.';
+});
+
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+revealElements.forEach((el) => observer.observe(el));
