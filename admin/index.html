@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogicNest Admin Console</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar"><a class="logo" href="/">LOGICNEST ADMIN</a></header>
+  <main class="container page">
+    <section class="panel reveal">
+      <h1>Ticket Command Center</h1>
+      <p class="lead">Secure dashboard for reviewing all incoming client tickets, tracking demand, and prioritizing project intake.</p>
+    </section>
+
+    <section id="loginBox" class="panel reveal">
+      <h2>Admin Authentication</h2>
+      <form id="adminLoginForm" class="form-grid">
+        <label>Password
+          <input type="password" id="adminPassword" required />
+        </label>
+        <button class="btn solid" type="submit">Unlock Dashboard</button>
+        <p id="loginStatus"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="reveal" style="display:none;">
+      <div class="split">
+        <article class="panel">
+          <h2>Live Ticket Feed</h2>
+          <p id="ticketsMeta" class="lead"></p>
+        </article>
+        <article class="panel">
+          <h2>Actions</h2>
+          <div class="cta-row">
+            <button id="refreshBtn" class="btn outline" type="button">Refresh</button>
+            <button id="logoutBtn" class="btn outline" type="button">Logout</button>
+          </div>
+          <p id="pageInfo" class="lead"></p>
+        </article>
+      </div>
+      <div id="ticketsList" class="three-up"></div>
+      <div class="cta-row" style="justify-content:center;">
+        <button id="prevPage" class="btn outline" type="button">Previous</button>
+        <button id="nextPage" class="btn outline" type="button">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="../config.js"></script>
+  <script src="../site.js"></script>
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>
