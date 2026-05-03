@@ -40,3 +40,12 @@ alter table public.tickets enable row level security;
 create policy "Allow ticket inserts" on public.tickets for insert to anon with check (true);
 create policy "Allow ticket reads" on public.tickets for select to anon using (true);
 ```
+
+
+## Troubleshooting: tickets submit but do not show in admin
+If tickets are visible in Supabase table but not in `/admin/`, your anon role likely lacks `select` access.
+
+```sql
+alter table public.tickets enable row level security;
+create policy "Allow ticket reads" on public.tickets for select to anon using (true);
+```
